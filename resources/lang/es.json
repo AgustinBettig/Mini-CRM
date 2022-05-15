@@ -5,6 +5,21 @@
     "Dashboard" : "Escritorio",
     "Spanish" : "Español",
     "English" : "Inglés",
-    "Logout"  : "Salir"
+    "Logout"  : "Salir",
+    "Companies" : "Empresas",
+    "Company" : "Empresa",
+    "Employees" : "Empleados",
+    "New company" : "Crear empresa",
+    "New employee" : "Crear empleado",
+    "Name" : "Nombre",
+    "Web site" : "Sitio Web",
+    "Options" : "Opciones",
+    "Surname" : "Apellido",
+    "Phone" : "Telefono",
+    "Edit" : "Editar",
+    "Delete" : "Eliminar",
+    "Close" : "Cerrar",
+    "Save" : "Guardar",
+    "Select company" : "Seleccionar empresa"
 
 }

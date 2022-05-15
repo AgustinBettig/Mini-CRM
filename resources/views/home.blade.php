@@ -25,9 +25,9 @@
         <div class="col-lg-10">
             <div class="card">
                 <div class="card-header">
-                    <h2>Empresas</h2>
+                    <h2>{{ __("Companies") }}</h2>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#empresaModal">
-                        Crear Empresa
+                        {{ __('New company') }}
                     </button>
                 </div>
                 <div class="card-body">
@@ -35,11 +35,11 @@
                     <table id="empresasTable" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <th class="text-start">Nombre</th>
+                                <th class="text-start">{{ __('Name') }}</th>
                                 <th class="text-center">Logo</th>
                                 <th class="text-center">Email</th>
-                                <th class="text-center">Sitio Web</th>
-                                <th class="text-end">Options</th>
+                                <th class="text-center">{{ __('Web site') }}</th>
+                                <th class="text-end">{{ __('Options') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,10 +61,10 @@
                                             @csrf
                                             {{ method_field('DELETE') }}
                                             <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#edit{{ $empresa->id }}Modal">
-                                                Edit
+                                                {{ __('Edit') }}
                                             </button>
                                             <button type="submit" class="btn btn-danger">
-                                                Delete
+                                                {{ __('Delete') }}
                                             </button>
                                         </form>
                                     </div>
@@ -82,9 +82,9 @@
         <div class="col-lg-10">
             <div class="card">
                 <div class="card-header">
-                    <h2>Empleados</h2>
+                    <h2>{{ __('Employees') }}</h2>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#empleadoModal">
-                        Crear Empleado
+                        {{ __('New employee') }}
                     </button>
                 </div>
 
@@ -92,11 +92,11 @@
                     <table id="empleadosTable" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <th class="text-start">Nombre</th>
-                                <th class="text-start">Apellido</th>
-                                <th class="text-start">Empresa</th>
+                                <th class="text-start">{{ __('Name') }}</th>
+                                <th class="text-start">{{ __('Surname') }}</th>
+                                <th class="text-start">{{ __('Company') }}</th>
                                 <th class="text-start">Email</th>
-                                <th class="text-start">Telefono</th>
+                                <th class="text-start">{{ __('Phone') }}</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -114,10 +114,10 @@
                                             @csrf
                                             {{ method_field('DELETE') }}
                                             <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#edit{{ $empleado->id }}EmpModal">
-                                                Edit
+                                                {{ __('Edit') }}
                                             </button>
                                             <button type="submit" class="btn btn-danger">
-                                                Delete
+                                                {{ __('Delete') }}
                                             </button>
                                         </form>
                                     </div>
@@ -137,14 +137,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Crear Empresa</h5>
+                    <h5 class="modal-title">{{ __('New company') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ url('/Create/Empresa') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="input-group mb-3">
-                            <span class="input-group-text">Nombre</span>
+                            <span class="input-group-text">{{ __('Name') }}</span>
                             <input type="text" class="form-control" name="empresaName">
                         </div>
                         <div class="row g-0 mb-3">
@@ -160,13 +160,13 @@
                             <input type="text" class="form-control" name="empresaEmail">
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text">Sitio Web</span>
+                            <span class="input-group-text">{{ __('Web site') }}</span>
                             <input type="text" class="form-control" name="empresaWeb">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
                     </div>
                 </form>
             </div>
@@ -179,14 +179,14 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Editar {{ $empresa->name }}</h5>
+                        <h5 class="modal-title">{{ __('Edit') }} {{ $empresa->name }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ url('/Update/Empresa/'.$empresa->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
                             <div class="input-group mb-3">
-                                <span class="input-group-text">Nombre</span>
+                                <span class="input-group-text">{{ __('Name') }}</span>
                                 <input type="text" class="form-control" name="empresaName" value="{{ $empresa->name }}">
                             </div>
                             <div class="row g-0 mb-3">
@@ -202,13 +202,13 @@
                                 <input type="text" class="form-control" name="empresaEmail" value="{{ $empresa->email }}">
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text">Sitio Web</span>
+                                <span class="input-group-text">{{ __('Web site') }}</span>
                                 <input type="text" class="form-control" name="empresaWeb" value="{{ $empresa->web }}">
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
                         </div>
                     </form>
                 </div>
@@ -221,23 +221,23 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Crear Empleado</h5>
+                    <h5 class="modal-title">{{ __('New employee') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ url('/Create/Empleado') }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <div class="input-group mb-3">
-                            <span class="input-group-text">Nombre</span>
+                            <span class="input-group-text">{{ __('Name') }}</span>
                             <input type="text" class="form-control" name="empleadoName">
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text">Apellido</span>
+                            <span class="input-group-text">{{ __('Surname') }}</span>
                             <input type="text" class="form-control" name="empleadoSurname">
                         </div>
                         <div class="input-group mb-3">
                             <select class="form-select" name="empleadoEmpresa">
-                                <option selected>Selecionar empresa</option>
+                                <option selected>{{ __('Select company') }}</option>
                                 @foreach ($empresas as $empresa)
                                 <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
                                 @endforeach
@@ -248,13 +248,13 @@
                             <input type="text" class="form-control" name="empleadoEmail">
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text">Telefono</span>
+                            <span class="input-group-text">{{ __('Phone') }}</span>
                             <input type="text" class="form-control" name="empleadoPhone">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
                     </div>
                 </form>
             </div>
@@ -267,18 +267,18 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Editar {{ $empleado->name }}</h5>
+                        <h5 class="modal-title">{{ __('Edit') }} {{ $empleado->name }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ url('/Update/Empleado/'.$empleado->id) }}" method="POST">
                         @csrf
                         <div class="modal-body">
                             <div class="input-group mb-3">
-                                <span class="input-group-text">Nombre</span>
+                                <span class="input-group-text">{{ __('Name') }}</span>
                                 <input type="text" class="form-control" name="empleadoName" value="{{ $empleado->name }}">
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text">Apellido</span>
+                                <span class="input-group-text">{{ __('Surname') }}</span>
                                 <input type="text" class="form-control" name="empleadoSurname" value="{{ $empleado->surname }}">
                             </div>
                             <div class="input-group mb-3">
@@ -297,13 +297,13 @@
                                 <input type="text" class="form-control" name="empleadoEmail" value="{{ $empleado->email }}">
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text">Sitio Web</span>
+                                <span class="input-group-text">{{ __('Phone') }}</span>
                                 <input type="text" class="form-control" name="empleadoPhone" value="{{ $empleado->phone }}">
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
                         </div>
                     </form>
                 </div>
